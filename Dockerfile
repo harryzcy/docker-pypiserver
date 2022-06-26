@@ -21,4 +21,4 @@ COPY --from=builder /app /app
 
 EXPOSE 8080
 
-CMD ["pypi-server", "-p", "8080", "/data/packages"]
+CMD ["venv/bin/pypi-server", "-p", "8080", "/data/packages"]
