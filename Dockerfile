@@ -1,4 +1,4 @@
-FROM python:3.12.2-alpine3.18 as builder
+FROM python:3.12.2-alpine3.19 as builder
 
 WORKDIR /app
 
@@ -13,7 +13,7 @@ RUN python -m venv venv && \
     find venv -name "*.pyo" -exec rm -f {} \+ && \
     find venv -type d -name "__pycache__" -exec rm -r {} \+
 
-FROM python:3.12.2-alpine3.18
+FROM python:3.12.2-alpine3.19
 
 WORKDIR /app
 
