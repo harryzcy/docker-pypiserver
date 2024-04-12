@@ -28,4 +28,6 @@ jobs:
           docker run -d -p 8080:8080 -v /tmp/pypiserver/packages:/data/packages pypiserver
 
       - name: Test
-        run: curl -s http://localhost:8080/simple/ | grep -q "Simple Index"
+        run: |
+          sleep 5
+          curl -s http://localhost:8080/simple/ | grep -q "Simple Index"
