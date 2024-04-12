@@ -17,7 +17,10 @@ FROM python:3.12.2-alpine3.19
 
 WORKDIR /app
 
-COPY --from=builder /app /app
+RUN addgroup -S nonroot && adduser -S nonroot -G nonroot
+USER nonroot
+
+COPY --from=builder --chown=nonroot:nonroot /app /app
 
 EXPOSE 8080
 
