@@ -3,7 +3,8 @@
     "config:best-practices",
     ":pinDependencies",
     ":disableDependencyDashboard",
-    ":automergeMinor"
+    ":automergeMinor",
+    "helpers:pinGitHubActionDigestsToSemver"
   ],
   "labels": [
     "dependencies"
