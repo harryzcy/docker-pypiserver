@@ -21,3 +21,9 @@ jobs:
 
       - name: Build Docker image
         run: docker build -t pypiserver .
+
+      - name: Run Docker image
+        run: docker run -d -p 8080:8080 pypiserver
+
+      - name: Test
+        run: curl -s http://localhost:8080/simple/ | grep -q "Index of /simple/"
