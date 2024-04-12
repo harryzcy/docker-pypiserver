@@ -21,3 +21,13 @@ jobs:
 
       - name: Build Docker image
         run: docker build -t pypiserver .
+
+      - name: Run Docker image
+        run: |
+          mkdir -p /tmp/pypiserver/packages
+          docker run -d -p 8080:8080 -v /tmp/pypiserver/packages:/data/packages pypiserver
+
+      - name: Test
+        run: |
+          sleep 5
+          curl -s http://localhost:8080/simple/ | grep -q "Simple Index"
