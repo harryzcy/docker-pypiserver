@@ -17,8 +17,12 @@ FROM python:3.12.2-alpine3.19
 
 WORKDIR /app
 
-COPY --from=builder /app /app
+RUN addgroup -S nonroot && adduser -S nonroot -G nonroot
+USER nonroot
+
+COPY --from=builder --chown=nonroot:nonroot /app /app
 
 EXPOSE 8080
-
+HEALTHCHECK  --interval=5m --timeout=3s \
+    CMD wget --no-verbose --tries=1 --spider http://localhost:8080/health || exit 1
 CMD ["venv/bin/pypi-server", "-p", "8080", "/data/packages"]
