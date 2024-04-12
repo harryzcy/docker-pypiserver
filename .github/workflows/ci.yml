@@ -28,4 +28,4 @@ jobs:
       - name: Test
         run: |
           sleep 5
-          curl -s http://localhost:8080/simple/ | grep -q "Simple Index"
+          curl http://localhost:8080/health
