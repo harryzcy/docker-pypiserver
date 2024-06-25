@@ -17,7 +17,7 @@ FROM python:3.12.3-alpine3.19@sha256:ef097620baf1272e38264207003b0982285da3236a2
 
 WORKDIR /app
 
-RUN addgroup --system nonroot && adduser --system nonroot -G nonroot
+RUN addgroup --system nonroot && adduser --system nonroot --group nonroot
 USER nonroot
 
 COPY --from=builder --chown=nonroot:nonroot /app /app
