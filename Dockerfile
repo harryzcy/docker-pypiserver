@@ -1,4 +1,4 @@
-FROM python:3.12.7-alpine3.20@sha256:38e179a0f0436c97ecc76bcd378d7293ab3ee79e4b8c440fdc7113670cb6e204 as base
+FROM python:3.13.0@sha256:a31cbb4db18c6f09e3300fa85b77f6d56702501fcb9bdb8792ec702a39ba6200 as base
 
 FROM base as builder
 
