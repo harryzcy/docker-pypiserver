@@ -1,5 +1,7 @@
 # docker-pypiserver
 
+NOTICE: This repository has been moved to [container-images](https://github.com/harryzcy/container-images)
+
 Docker container for [pypiserver](https://github.com/pypiserver/pypiserver)
 
 ## Usage
